@@ -10,6 +10,8 @@
 .DS_Store
 /build
 /captures
+/Configs.kt
+/PapagoService.kt
 .externalNativeBuild
 .cxx
 local.properties
