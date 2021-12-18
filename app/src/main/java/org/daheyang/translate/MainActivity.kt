@@ -19,7 +19,7 @@ class MainActivity : AppCompatActivity() {
             override fun onResponse(call: Call<PapagoEntity>, response: Response<PapagoEntity>) {
                 val result = response.body()
 
-                Log.d("요청 성공!", "${result?.message}")
+                Log.d("요청 성공!", "${result?.message?.result?.translatedText}")
             }
 
             override fun onFailure(call: Call<PapagoEntity>, t: Throwable) {
