@@ -19,7 +19,6 @@ class ChattingAdapter (private val list: ArrayList<Message>) : RecyclerView.Adap
 
     override fun onBindViewHolder(holder: ChattingViewHolder, position: Int) {
         holder.message?.text = list[position].message
-
     }
 
     override fun getItemCount(): Int {
