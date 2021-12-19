@@ -3,25 +3,26 @@ package org.daheyang.translate
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
+import android.widget.Button
+import android.widget.EditText
 import androidx.recyclerview.widget.RecyclerView
 import org.daheyang.translate.model.PapagoEntity
 import org.daheyang.translate.model.PapagoServiceCreator
 import retrofit2.Call
 import retrofit2.Response
 
-
 class MainActivity : AppCompatActivity() {
     private val LOG_TAG = "MainActivity Request"
-    lateinit var recyclerView: RecyclerView
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
-
         val recyclerView = findViewById<RecyclerView>(R.id.main_view)
-
         val papagoService = PapagoServiceCreator().create()
         val call = papagoService.requestTranslation()
+/*
+        val editText : EditText = findViewById(R.id.input_sourceText)
+        val button : Button = findViewById(R.id.btn_enter) */
 
         call.enqueue(object : retrofit2.Callback<PapagoEntity> {
             override fun onResponse(call: Call<PapagoEntity>, response: Response<PapagoEntity>) {
@@ -50,5 +51,9 @@ class MainActivity : AppCompatActivity() {
             }
         })
 
+        /*
+        button.setOnClickListener {
+            var sourceText = editText.text.toString()
+        }*/
     }
 }
